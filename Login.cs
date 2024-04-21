@@ -8,7 +8,7 @@ public class Password
         {
             throw new WrongLoginException("Login is invalid", login);
         }
-        else if (password.Length > 20 || password.Contains(" "))
+        if (password.Length > 20 || password.Contains(" "))
         {
             for (int a = 0; a < password.Length; a++)
             {
@@ -18,7 +18,7 @@ public class Password
                 }
             }
         }
-        else if (password.Length < 20)
+        if (password.Length < 20)
         {
             int count = 0;
             for (int a = 0; a < password.Length; a++)
@@ -33,7 +33,7 @@ public class Password
                 throw new WrongPasswordException("Password is invalid, should be at least 1 number", password);
             }
         }
-        else if (string.Compare(password,confirmPassword) != 0)
+        if (string.Compare(password,confirmPassword) != 0)
         {
             throw new WrongPasswordException("ConfirmPassword != Password", confirmPassword);
         }
